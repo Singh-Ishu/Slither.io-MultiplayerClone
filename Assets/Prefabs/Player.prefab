@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: -2598544397758149029}
   - component: {fileID: -3359909070886437062}
   - component: {fileID: 3972025284448384937}
+  - component: {fileID: 1596210738875984420}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -200,8 +201,8 @@ Transform:
   m_GameObject: {fileID: 4381362581972827267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8012869658886852064}
   - {fileID: 7691178557756960625}
@@ -274,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 724621873
+  GlobalObjectIdHash: 2821301212
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -374,6 +375,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0274bea4b18a034bb55401384acc773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tailPrefab: {fileID: 1373431794039930714, guid: 1aab6c4190a1d1842a2f6080b5b75702, type: 3}
+  length:
+    m_InternalValue: 1
+--- !u!58 &1596210738875984420
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4381362581972827267}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49999997
 --- !u!1 &6349794747495457025
 GameObject:
   m_ObjectHideFlags: 0
