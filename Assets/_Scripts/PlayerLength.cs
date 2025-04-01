@@ -22,7 +22,7 @@ public class PlayerLength : NetworkBehaviour
     }
 
     [ContextMenu(itemName:"AddLength")]
-    private void AddLength()
+    public void AddLength()
     {
         length.Value += 1;
         InstantiateTail();
