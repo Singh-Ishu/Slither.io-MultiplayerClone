@@ -16,10 +16,11 @@ public class PlayerController : NetworkBehaviour
     {
         base.OnNetworkSpawn();
         Initialize();
+
     }
     private void Update()
     {
-        if (!Application.isFocused) return;
+        if (!Application.isFocused || !IsOwner) return;
         //Movement
         _mouseInput.x = Input.mousePosition.x;
         _mouseInput.y = Input.mousePosition.y;
