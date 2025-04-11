@@ -38,6 +38,7 @@ public class PlayerLength : NetworkBehaviour
 
         if (!IsOwner) return;
         ChangedLengthEvent?.Invoke(length.Value);//Not required is server is not a host
+        ClientMusicPlayer.Instance.PlayNomAudioClip();
     }
 
     private void LengthChangedEvent(ushort previousValue, ushort newValue)
