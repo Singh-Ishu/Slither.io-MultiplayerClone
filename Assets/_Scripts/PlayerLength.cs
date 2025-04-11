@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class PlayerLength : NetworkBehaviour
     [SerializeField] private GameObject tailPrefab;
 
     public NetworkVariable<ushort> length = new(value:1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+
+    [CanBeNull] public static event System.Action<ushort> ChangedLengthEvent;
 
     private List<GameObject> _tails;
     private Transform _lastTail;
@@ -32,6 +35,9 @@ public class PlayerLength : NetworkBehaviour
     {
         Debug.Log(message: "LengthChanged Callback");
         InstantiateTail();
+
+        if (!IsOwner) return;
+        ChangedLengthEvent?.Invoke(length.Value);
     }
     private void InstantiateTail()
     {
