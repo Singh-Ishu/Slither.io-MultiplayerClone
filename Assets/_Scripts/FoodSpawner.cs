@@ -37,13 +37,32 @@ public class FoodSpawner : MonoBehaviour
         return new Vector3(Random.Range(-9f, 9f), Random.Range(-5f, 5f), 0);
     }
 
+    //private IEnumerator SpawnOverTime()
+    //{
+    //    while(NetworkManager.Singleton.ConnectedClients.Count > 0)
+    //    {
+    //        yield return new WaitForSeconds(2f);
+    //        if(NetworkObjectPool.Singleton.GetCurrentPrefabCount(prefab) < MaxPrefabCount)
+    //        SpawnFood();
+    //    }
+    //}
+
     private IEnumerator SpawnOverTime()
     {
-        while(NetworkManager.Singleton.ConnectedClients.Count > 0)
+        // Wait for the server to be actively running
+        while (!NetworkManager.Singleton.IsServer)
+        {
+            yield return null;
+        }
+
+        while (NetworkManager.Singleton.IsServer) // Continue as long as the server is running
         {
             yield return new WaitForSeconds(2f);
-            if(NetworkObjectPool.Singleton.GetCurrentPrefabCount(prefab) < MaxPrefabCount)
-            SpawnFood();
+            if (NetworkObjectPool.Singleton != null && prefab != null &&
+                NetworkObjectPool.Singleton.GetCurrentPrefabCount(prefab) < MaxPrefabCount)
+            {
+                SpawnFood();
+            }
         }
     }
 }
