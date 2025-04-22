@@ -65,4 +65,12 @@ public class FoodSpawner : MonoBehaviour
             }
         }
     }
+
+    private void OnDestroy()
+    {
+        if (NetworkManager.Singleton != null)
+        {
+            StopAllCoroutines();
+        }
+    }
 }

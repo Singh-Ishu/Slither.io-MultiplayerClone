@@ -771,11 +771,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: d80bfee8-aa34-4670-b773-6bdad7f45ad4
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Slither
+  organizationId: iswis
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
